@@ -9,5 +9,7 @@ MATLAB code:
 - sintetis.m is used to create the wave spectrum (calling the spectrum.m in the script), synthetic SWL (ema.m), and then to repeat again the zerodown.m to identify and sort the individual waves.
 
 Python code:
-- All the codes are within 1 script. In the main process, we call through the functions at the bottom of the file.
+- All the codes are within 1 script (main.py). In the main process, we call through the functions at the bottom of the file.
 - Functions can be called separately, ie for just zerodown_data or synthetic, type 'import main' in python interpreter and enter the functions manually.
+- deleteblank.py is used to delete lines of blank data (-) if there is any
+- break.py is used to separate the data into hourly files
