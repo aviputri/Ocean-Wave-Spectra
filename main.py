@@ -7,7 +7,8 @@ import numpy as np
 import math
 
 """
-our main process, which is called through the function at the bottom of this file. if you want to use the functions separately, ie just zerodown_data or synthetic, 'import main' in python interpreter and enter the functions manually.
+This is the main process, in which we call through the functions at the bottom of this file.
+Functions can be called separately, ie for just zerodown_data or synthetic, type 'import main' in python interpreter and enter the functions manually.
 """
 def main(argv):
     # if a data directory is specified from the command line, use it
@@ -49,7 +50,9 @@ def main(argv):
 
 
 """
-use this function to read measurement data from files in a folder, calculate various parameters of the individual waves, and write these parameters to file
+This function is to read SWL data from files in a folder.
+!!! The data is in the form of *separate* hourly SWL data to make the loop easier !!!
+Various parameters of the waves will be calculated and written into file
 """
 def zerodown_data(datpath, sr):
     # lists of relevant hourly data
@@ -60,7 +63,8 @@ def zerodown_data(datpath, sr):
 
     # loop through all our data files and compute relevant hourly data
     """
-    The weakness to this approach is that individual waves spanning files are not identified (they could but it would be a hassle). It also means we need to handle border cases (zero-dimension matrices) in our zerodown function.
+    The weakness to this approach is that individual waves spanning files are not identified (they could but it would be a hassle). 
+    It also means we need to handle border cases (zero-dimension matrices) in our zerodown function.
     """
     for file in sorted(os.listdir(datpath)):
         # read raw data from file
@@ -111,7 +115,7 @@ def synthetic(hsfile, spectrum, sr):
 
     index = 0
 
-    # jonswap
+    # JONSWAP spectrum
     if spectrum == 0:
         for dat in data:
             index += 1
@@ -129,7 +133,7 @@ def synthetic(hsfile, spectrum, sr):
             hhts.append(hts)
             hht10.append(ht10)
 
-    # wallops
+    # Wallops spectrum
     elif spectrum == 1:
         for dat in data:
             index += 1
@@ -147,7 +151,7 @@ def synthetic(hsfile, spectrum, sr):
             hhts.append(hts)
             hht10.append(ht10)
 
-    # custom spectrum -- based on bert-schneider
+    # customized spectrum -- based on bert-schneider
     elif spectrum == 2:
         for dat in data:
             index += 1
