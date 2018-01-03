@@ -5,7 +5,7 @@ There are Python and MATLAB scripts to run this project. The Python script is in
 
 MATLAB code:
 - The main of the MATLAB scripts is processall.m, which will call the zerodown function, to analyze the individual waves out of the SWL data by zerodown-crossing.
-- In the zerodown.m, we are using lagrpol to use Lagrange interpolation on the SWL data gaps, and then the individual waves will be sorted to get the wave parameters.
+- In the zerodown.m, we are using lagrpol function (lagrpol.m) to use Lagrange interpolation on the SWL data gaps, and then the individual waves will be sorted to get the wave parameters.
 - sintetis.m is used to create the wave spectrum (calling the spectrum.m in the script), synthetic SWL (ema.m), and then to repeat again the zerodown.m to identify and sort the individual waves.
 
 Python code:
